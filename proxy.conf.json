@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "http://factorized.bluehoods.co:8090/",
+      "secure": false
+    }
+  }

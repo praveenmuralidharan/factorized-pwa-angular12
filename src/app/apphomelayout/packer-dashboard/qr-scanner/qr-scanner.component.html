@@ -1,0 +1,18 @@
+<div class="ocrloader">
+    <em></em>
+    <div>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i>
+    </div>
+    <span></span>
+</div>
+
+<zxing-scanner [formats]="allowedFormats" (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+
+<section class="results" *ngIf="qrResultString">
+    <div>
+      <small>Container: </small>
+      <strong>{{ qrResultString }} </strong>
+    </div>
+</section>

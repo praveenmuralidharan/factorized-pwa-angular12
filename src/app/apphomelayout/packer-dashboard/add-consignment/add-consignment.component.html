@@ -1,0 +1,51 @@
+<!-- Order Details -->
+<div class="row mb-3">
+    <div class="col text-center">
+        <h6 class="title">Order: 0001</h6>
+    </div>
+</div>
+
+<!-- Consignment information -->
+<div class="row mb-3">
+    <div class="col">
+        <h6>Consignment Information</h6>
+    </div>
+</div>
+<div class="row h-100 mb-4">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating  mb-3">
+            <input type="text" class="form-control" value="0001-01" placeholder="Consignment No. [Auto Generated]" id="names">
+            <label for="names">Consignment No. [Auto Generated]</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating  mb-3">
+            <input type="text" class="form-control" placeholder="Quantity" id="items">
+            <label for="items">Quantity</label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group form-floating  mb-3">
+            <select class="form-control" placeholder="Quantity" id="uom">
+                <option>
+                    KG
+                </option>
+                <option>
+                    TON
+                </option>
+                <option>
+                    SHEETS
+                </option>
+            </select>
+            <label for="uom">Unit</label>
+        </div>
+    </div>
+</div>
+
+<div class="row h-100 ">
+    <div class="col-12 mb-4">
+        <a routerLink="/consignment-details" target="_self" class="btn btn-default btn-lg w-100">
+            Create
+        </a>
+    </div>
+</div>

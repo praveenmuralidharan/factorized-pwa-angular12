@@ -1,0 +1,55 @@
+<!-- Search order -->
+<div class="form-group form-floating mb-3">
+    <input type="text" class="form-control " id="search" placeholder="Search">
+    <label class="form-control-label" for="search">Search order</label>
+    <button type="button" class="text-color-theme tooltip-btn">
+        <i class="bi bi-search"></i>
+    </button>
+</div>
+
+<!-- List of orders -->
+<div class="row mb-1">
+    <!-- Order Item -->
+    <div class="col-12 col-md-6 col-lg-6" *ngFor="let orderRecord of orderRecords">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col align-self-center">
+                        <a routerLink="/order-details" [queryParams]="{ order: orderRecord.id }" class="text-dark">
+                            <p class="mb-0">
+                                <span class="text-color-theme fw-medium">Order: {{orderRecord.orderno}}</span>
+                                <span class="tag text-white py-1 px-2 float-end mt-1 text-capitalize" 
+                                    [ngClass]="
+                                        orderRecord.status == 'created' ? 'bg-warning' : 
+                                        orderRecord.status == 'inprogress' ? 'bg-info' : 
+                                        orderRecord.status == 'transit' ? 'bg-primary' : ''
+                                    "
+                                >
+                                    {{orderRecord.status}}
+                                </span>
+                            </p>
+                            <p>
+                                <small class="size-12 text-muted">
+                                    <b>Customer:</b> {{orderRecord.customer}}
+                                </small> 
+                                <br>
+                                <small class="size-12 text-muted">
+                                    <b>From:</b> {{orderRecord.from_address}}
+                                </small> 
+                                <br>
+                                <small class="size-12 text-muted">
+                                    <b>Due Date:</b> {{orderRecord.duedate}}
+                                </small>
+                                <br>
+                                <small class="size-12 text-muted">
+                                    <b>Quantity:</b> {{orderRecord.qty}} {{orderRecord.uom}}
+                                </small>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

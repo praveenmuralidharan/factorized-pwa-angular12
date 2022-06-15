@@ -1,0 +1,149 @@
+<!-- Order Details -->
+<div class="row mb-3">
+    <div class="col text-center">
+        <h6 class="title">Order: {{orderRecord.orderno}}</h6>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col table-responsive">
+        <div class="accordion accordion-flush rounded-15 shadow-sm card overflow-hidden"
+            id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Order Details
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-muted">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                  <th>Customer</th>
+                                  <td>{{orderRecord.customer}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Quantity</th>
+                                  <td>{{orderRecord.qty}} {{orderRecord.uom}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Pickup</th>
+                                  <td>{{orderRecord.pickuplocation}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Drop</th>
+                                  <td>{{orderRecord.droplocation}}</td>
+                                </tr>
+                                <tr>
+                                  <th>From</th>
+                                  <td>{{orderRecord.from_address}} {{orderRecord.from_city}}</td>
+                                </tr>
+                                <tr>
+                                  <th>To</th>
+                                  <td>{{orderRecord.to_address}} {{orderRecord.to_city}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Part name</th>
+                                  <td>{{orderRecord.partname}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Part Number</th>
+                                  <td>{{orderRecord.partno}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Note</th>
+                                  <td>{{orderRecord.notes}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Status</th>
+                                  <td>{{orderRecord.status}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Due date</th>
+                                  <td>{{orderRecord.duedate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Consignments -->
+<div class="row mb-3">
+    <div class="col">
+        <h6 class="title">Consignments</h6>
+    </div>
+    <div class="col-auto">
+        <a routerLink="/add-consignment" class="small">
+            Add Consignment
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="row">
+
+            <div class="col-12 col-md-12" *ngFor="let orderConsignment of orderRecord.consignments">
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <a routerLink="/consignment-details" class="text-dark">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-40 alert-warning text-warning rounded-circle">
+                                        <i class="bi bi-truck"></i>
+                                    </div>
+                                </div>
+                                <div class="col px-0 align-self-center">
+                                    <p class="text-muted size-12 mb-0">
+                                        Consignment: {{ orderConsignment.consignmentno }}
+                                    </p>
+                                    <p>
+                                        Quantity: {{ orderConsignment.qty }} {{ orderConsignment.uom }}
+                                    </p>
+                                    <span class="tag bg-warning border-warning text-white py-1 px-2">
+                                        {{ orderConsignment.status }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Container Item -->
+                <div class="row" *ngFor="let container of containers">
+                    <div class="col-1 col-md-1"></div>
+                    <div class="col-11 col-md-11">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-40 alert-primary text-primary rounded-circle">
+                                            <i class="bi bi-truck"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col px-0 align-self-center">
+                                        <p class="text-muted size-12 mb-0">
+                                            Container Loaded
+                                        </p>
+                                        <p>
+                                            1,723 of 15,160
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
